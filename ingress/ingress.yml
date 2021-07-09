@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-k8s-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /react-service
+        pathType: Prefix
+        backend:
+          service:
+            name: react-service-sv
+            port: 
+              number: 80
+      - path: /react-app
+        pathType: Prefix
+        backend:
+          service:
+            name: react-app-sv
+            port: 
+              number: 80
